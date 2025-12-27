@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	mapset "github.com/deckarep/golang-set/v2"
+	"github.com/ml1nk/adventofcode2025/10/lgs"
 	"github.com/samber/lo"
 )
 
@@ -22,9 +23,10 @@ func main() {
 	println("10")
 
 	_, _ = fmt.Println("example1: ", solve01(example))
-	//	_, _ = fmt.Println("example2: ", solve02(example, true))
 	_, _ = fmt.Println("puzzle1: ", solve01(puzzle))
-	//_, _ = fmt.Println("puzzle2: ", solve02(puzzle, false)) // tested with false and true, autodetection is trivial
+
+	_, _ = fmt.Println("example2: ", lgs.Solve02(example))
+	_, _ = fmt.Println("puzzle2: ", lgs.Solve02(puzzle))
 }
 
 func solve01(input string) int {
@@ -80,6 +82,7 @@ func solveMachine(lights []bool, buttons [][]int) int {
 			}
 		}
 		states = nextStates
+		nextStates = [][]bool{}
 	}
 
 	return depth
